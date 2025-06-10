@@ -1,6 +1,17 @@
 pipeline {
     agent any
 
+    stage('Limpiar contenedores Docker') {
+            steps {
+                script {
+                    sh '''
+                        echo "Eliminando contenedores Docker existentes..."
+                        docker ps -aq | xargs -r docker rm -f
+                    '''
+                }
+            }
+        }
+
     stages {
         stage('Clonar repositorio') {
             steps {

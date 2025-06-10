@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Clonar repositorio') {
             steps {
-                git 'https://github.com/pr0317/mi-proyecto-docker.git'
+                git branch: 'main',
+                url: 'https://github.com/pr0317/mi-proyecto-docker.git',
+                credentialsId: 'personal'
             }
         }
 

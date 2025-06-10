@@ -1,7 +1,8 @@
 pipeline {
     agent any
 
-    stage('Limpiar contenedores Docker') {
+    stages {
+        stage('Limpiar contenedores Docker') {
             steps {
                 script {
                     sh '''
@@ -11,8 +12,6 @@ pipeline {
                 }
             }
         }
-
-    stages {
         stage('Clonar repositorio') {
             steps {
                 git branch: 'main',
